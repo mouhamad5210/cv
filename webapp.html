@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Application with ASP.Net Core</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+    
+            modal.style.display = 'flex'; // Show modal
+            modalImage.src = imageSrc; // Set modal image source
+        }
+    
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none'; // Hide modal
+        }
+    </script>
     <style>
         /* Gallery styles */
         .gallery {
@@ -92,30 +106,15 @@
         <section>
             <h2>Gallery</h2>
             <div class="gallery">
-                <a href="#" onclick="openModal('images/webapp1.png'); return false;">
-                    <img src="images/webapp1.png" alt="Web Application Screenshot 1">
-                </a>
-                <a href="#" onclick="openModal('images/webapp2.png'); return false;">
-                    <img src="images/webapp2.png" alt="Web Application Screenshot 2">
-                </a>
-                <a href="#" onclick="openModal('images/webapp3.png'); return false;">
-                    <img src="images/webapp3.png" alt="Web Application Screenshot 3">
-                </a>
-                <a href="#" onclick="openModal('images/webapp4.png'); return false;">
-                    <img src="images/webapp4.png" alt="Web Application Screenshot 4">
-                </a>
-                <a href="#" onclick="openModal('images/webapp5.png'); return false;">
-                    <img src="images/webapp5.png" alt="Web Application Screenshot 5">
-                </a>
-                <a href="#" onclick="openModal('images/webapp6.png'); return false;">
-                    <img src="images/webapp6.png" alt="Web Application Screenshot 6">
-                </a>
-                <a href="#" onclick="openModal('images/webapp7.png'); return false;">
-                    <img src="images/webapp7.png" alt="Web Application Screenshot 7">
-                </a>
-                <a href="#" onclick="openModal('images/webapp8.png'); return false;">
-                    <img src="images/webapp8.png" alt="Web Application Screenshot 8">
-                </a>
+                <!-- Simplified 'onclick' to avoid redundancy -->
+                <img src="images/webapp1.png" alt="Web Application Screenshot 1" onclick="openModal(this.src)">
+                <img src="images/webapp2.png" alt="Web Application Screenshot 2" onclick="openModal(this.src)">
+                <img src="images/webapp3.png" alt="Web Application Screenshot 3" onclick="openModal(this.src)">
+                <img src="images/webapp4.png" alt="Web Application Screenshot 4" onclick="openModal(this.src)">
+                <img src="images/webapp5.png" alt="Web Application Screenshot 5" onclick="openModal(this.src)">
+                <img src="images/webapp6.png" alt="Web Application Screenshot 6" onclick="openModal(this.src)">
+                <img src="images/webapp7.png" alt="Web Application Screenshot 7" onclick="openModal(this.src)">
+                <img src="images/webapp8.png" alt="Web Application Screenshot 8" onclick="openModal(this.src)">
             </div>
             <!-- Modal for larger images -->
             <div id="imageModal" class="modal">
