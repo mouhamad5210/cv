@@ -22,42 +22,91 @@ body {
 
 /* Header styles */
 header {
-    background: linear-gradient(135deg, #004080, #0066cc);
-    color: #ffffff;
-    padding: 2rem 0;
+    position: relative; /* Scrolls naturally with the page */
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+header.sticky {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-in-out;
+}
+header .container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header .container h1,
+header .container p,
+header .container nav {
     text-align: center;
+}
+header .container nav {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 15px;
+}
+
+header .container nav a {
+    text-decoration: none;
+    color: #004080;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .container nav a:hover {
+    color: #0073e6; /* Lighter blue on hover */
+}
+
+body {
+    padding-top: 120px; /* Match the height of the fixed header */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #e6f2ff;
+    font-size: 2.5rem;
+    color: #004080;
+    margin: 0.5rem 0;
 }
 
 header p {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-    color: #d9ecff;
+    font-size: 1rem;
+    color: #004080;
+    margin-bottom: 1rem;
 }
 
 header nav {
-    margin-top: 1rem;
+    display: flex;
+    gap: 20px;
 }
 
 header nav a {
-    color: #b3d9ff;
-    margin: 0 1rem;
     text-decoration: none;
-    font-size: 1.1rem;
+    color: #004080;
     font-weight: bold;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header nav a:hover {
-    border-bottom: 3px solid #ffcc00;
-    color: #ffcc00;
+    background-color: #0073e6;
+    color: white;
 }
 
 /* About section */
