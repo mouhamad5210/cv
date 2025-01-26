@@ -121,12 +121,13 @@ header nav a:hover {
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #004080;
+    border: 5px solid #004080;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-right: 20px;
     margin-bottom: 10px;
     position: relative;
     background-color: #fff;
+    transform: translateY(10px); /* Moves the photo down by 10px */
 }
 
 .photo-wrapper img {
