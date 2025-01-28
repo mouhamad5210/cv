@@ -36,6 +36,22 @@
             aspect-ratio: 1/1;
         }
 
+        .hero {
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 20vh; /* Adjust height as needed */
+            background-color: #004080; /* Optional: Add a background color */
+            color: white; /* Optional: Change the text color */
+            text-align: center;
+            margin: 0; /* Remove default margin */
+            padding: 1rem; /* Add padding if needed */
+            font-size: 1.8rem; /* Adjust the font size */
+            border-radius: 10px; /* Optional: Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+        }
+
+
         /* Modal styles */
         .modal {
             display: none;
@@ -102,7 +118,7 @@
         </section>
 
         <section>
-            <h2>Gallery</h2>
+            <h2>Gallery from the project</h2>
             <div class="gallery">
                 <img src="images/webapp1.png" alt="Web Application Screenshot 1" onclick="openModal(this.src)">
                 <img src="images/webapp2.png" alt="Web Application Screenshot 2" onclick="openModal(this.src)">
