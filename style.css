@@ -304,6 +304,58 @@ footer {
         border: 2px solid #004080;
         border-radius: 5px;
     }
+
+    /* =========================================
+   RESPONSIVT DESIGN (MEDIA QUERIES)
+   ========================================= */
+
+/* For nettbrett og mindre enheter (alt under 768px bredde) */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Justerer grunnstørrelsen på skriften for bedre lesbarhet */
+    }
+
+    .container {
+        width: 90%; /* Bruker prosentvis bredde i stedet for fast bredde */
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2.5em; /* Reduserer størrelsen på hovedtittelen */
+    }
+}
+
+
+/* For mobiltelefoner (alt under 600px bredde) */
+@media (max-width: 600px) {
+    header {
+        padding: 40px 0;
+    }
+
+    header h1 {
+        font-size: 2em; /* Enda mindre tittel på mobil */
+    }
+
+    header p {
+        font-size: 1em;
+    }
+    
+    .section {
+        padding: 15px 0; /* Reduserer avstanden mellom seksjonene */
+        margin-bottom: 15px;
+    }
+
+    .section h2 {
+        font-size: 1.5em; /* Mindre seksjonstitler */
+    }
+
+    /* Hvis du har elementer ved siden av hverandre som skal stables på mobil, 
+       kan du legge til stiler for dem her. For eksempel:
+       .kolonne {
+           flex-direction: column;
+       }
+    */
+}
     
     
 
