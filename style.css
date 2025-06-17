@@ -8,6 +8,19 @@ body {
     background-color: #f4f8fc; /* Light background */
 }
 
+/* =========================================
+   GENERELLE FORBEDRINGER FOR RESPONSIVITET
+   ========================================= */
+* {
+    box-sizing: border-box; /* Sørger for at padding og border inkluderes i elementets totale bredde */
+}
+
+img {
+    max-width: 100%; /* Hindrer bilder i å bli bredere enn skjermen/sin container */
+    height: auto;    /* Beholder bildets proporsjoner */
+}
+
+
 /* Center and limit content width */
 .container {
     width: 90%;
