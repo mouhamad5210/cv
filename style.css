@@ -382,4 +382,47 @@ footer {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* --- Ytterligere Responsive Justeringer --- */
+
+/* For nettbrett og mindre skjermer (du har kanskje denne fra før) */
+@media (max-width: 768px) {
+    /* Gjør at tekst i "om meg"-seksjonen legger seg under bildet */
+    #about .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .photo-wrapper {
+        margin: 0 auto 20px; /* Senterstiller bildet når det er alene */
+    }
+}
+
+/* For små mobilskjermer */
+@media (max-width: 480px) {
+    .container {
+        /* Mindre padding på små skjermer for å gi mer plass til innhold */
+        padding: 1rem;
+    }
+
+    header h1 {
+        /* Mindre skriftstørrelse på overskriften */
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    header nav {
+        /* Stabler navigasjonslenkene vertikalt */
+        flex-direction: column;
+        gap: 10px; /* Mindre mellomrom mellom lenkene */
+    }
+
+    section h2 {
+        /* Mindre skriftstørrelse på seksjonstitler */
+        font-size: 1.5rem;
+    }
+}
      
