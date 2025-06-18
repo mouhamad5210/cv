@@ -8,11 +8,6 @@ body {
     background-color: #f4f8fc; /* Light background */
 }
 
-/* General style for strong text */
-strong {
-    color: #004080; /* Dark blue for all important text */
-}
-
 /* Center and limit content width */
 .container {
     width: 90%;
@@ -27,74 +22,119 @@ strong {
 
 /* Header styles */
 header {
-    background: linear-gradient(135deg, #004080, #0066cc);
-    color: #ffffff;
-    padding: 2rem 0;
+    position: relative; /* Scrolls naturally with the page */
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+header.sticky {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-in-out;
+}
+header .container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header .container h1,
+header .container p,
+header .container nav {
     text-align: center;
+}
+header .container nav {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 15px;
+}
+
+header .container nav a {
+    text-decoration: none;
+    color: #004080;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .container nav a:hover {
+    color: #0073e6; /* Lighter blue on hover */
+}
+
+body {
+    padding-top: 120px; /* Match the height of the fixed header */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 2.5rem;
     color: #004080;
+    margin: 0.5rem 0;
 }
 
 header p {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
+    font-size: 1rem;
     color: #004080;
+    margin-bottom: 1rem;
 }
 
 header nav {
-    margin-top: 1rem;
+    display: flex;
+    gap: 20px;
 }
 
 header nav a {
-    color: #004080;
-    margin: 0 1rem;
     text-decoration: none;
-    font-size: 1.1rem;
+    color: #004080;
     font-weight: bold;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header nav a:hover {
-    border-bottom: 3px solid #ffcc00;
-    color: #ffcc00;
+    background-color: #0073e6;
+    color: white;
 }
 
 /* About section */
 #about .about-content {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 2rem;
-}
-
-.about-content p {
-    flex: 1;
-    text-align: justify;
+    flex-wrap: wrap;
 }
 
 .photo-wrapper {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #004080;
+    border: 5px solid #004080;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    margin-bottom: 10px;
     position: relative;
     background-color: #fff;
-    flex-shrink: 0;
+    transform: translateY(10px); /* Moves the photo down by 10px */
 }
 
 .photo-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
+    object-fit: cover; /* Fill the circle */
+    object-position: top; /* Focus on the top of the image */
 }
 
 .photo-wrapper::after {
@@ -106,7 +146,7 @@ header nav a:hover {
     height: 100%;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0) 70%, #f4f8fc 100%);
-    pointer-events: none;
+    pointer-events: none; /* Make it non-interactive */
 }
 
 /* Section titles */
@@ -126,17 +166,26 @@ section h2 {
 }
 
 #utdanning ul li {
-    font-weight: normal; /* Resetter li til normal vekt */
-    margin-bottom: 1rem;
+    background: #e6f2ff;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    border-left: 4px solid #004080;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-#utdanning ul li p {
-    margin: 0.2rem 0 0 0;
+/* Apply dark blue color to bolded text inside Utdanning section */
+#utdanning ul li b {
+    color: #004080; /* Dark blue */
+}
+
+#utdanning ul p {
+    margin: 0.5rem 0 1rem 1.5rem;
     font-size: 0.95rem;
     color: #333;
-    text-align: left;
+    text-align: justify;
 }
-
 
 /* Skills list */
 #skills ul {
@@ -194,6 +243,8 @@ section h2 {
     text-decoration: underline;
 }
 
+
+
 /* Contact section */
 #contact p {
     font-size: 1rem;
@@ -223,22 +274,39 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     #about .about-content {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
     }
 
-  .photo-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    transform: rotate(180deg); 
-}
+    .photo-wrapper {
+        margin: 0 0 10px 0;
+    }
+
     header h1 {
         font-size: 2.5rem;
     }
 
     header nav a {
         font-size: 1rem;
+    }
+
+
+    .gallery {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* Three columns */
+        gap: 15px !important; /* Space between items */
+    }
+    
+    .gallery img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: 2px solid #004080;
+        border-radius: 5px;
+    }z
+    
+    .gallery img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
     }
 }
