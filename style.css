@@ -366,6 +366,7 @@ footer {
 
 /* The Close Button (X) */
 .close {
+    display: none;
     position: absolute;
     top: 15px;
     right: 35px;
@@ -381,3 +382,4 @@ footer {
     text-decoration: none;
     cursor: pointer;
 }
+     

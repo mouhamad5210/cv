@@ -68,7 +68,11 @@
 
         .modal-content {
             max-width: 90%;
-            max-height: 90%;
+            max-height: 90vh;
+            width: auto;      /* La bredden justere seg automatisk */
+            height: auto;     /* La høyden justere seg automatisk */
+            display: block;   /* Sikrer riktig oppførsel */
+            margin: auto;
             border: 2px solid white;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
@@ -131,7 +135,6 @@
             </div>
             <!-- Modal -->
             <div id="imageModal" class="modal">
-                <span class="close" onclick="closeModal()">&times;</span>
                 <img class="modal-content" id="modalImage" alt="Large view of the image">
             </div>
         </section>
@@ -202,19 +205,31 @@
     
     
     <script>
-        // Function to open the modal and display the selected image
+        // Hent elementene én gang for bedre ytelse
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        // Funksjon for å åpne modalen
         function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-    
-            modal.style.display = 'flex'; // Show the modal
-            modalImage.src = imageSrc; // Set the source of the modal image
+            if (modal && modalImage) {
+                modal.style.display = 'flex'; // Viser modalen
+                modalImage.src = imageSrc;    // Setter riktig bilde
+            }
         }
     
-        // Function to close the modal
+        // Funksjon for å lukke modalen
         function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = 'none'; // Hide the modal
+            if (modal) {
+                modal.style.display = 'none'; // Skjuler modalen
+            }
+        }
+
+        // NY KODE: Lukk modalen hvis brukeren klikker utenfor bildet
+        window.onclick = function(event) {
+            // Sjekker om elementet som ble klikket er selve modal-bakgrunnen
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
 
