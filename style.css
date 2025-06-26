@@ -115,13 +115,13 @@ section h2 {
     object-fit: cover;
 }
 
-#projects .project, #utdanning ul li {
+#projects .project, #utdanning .project {
     background: #f9fbff;
     padding: 1.5rem;
     margin-bottom: 1rem;
     border-left: 5px solid var(--secondary-color);
     border-radius: 5px;
-    list-style-type: none;
+    list-style-type: none; /* Sørger for at eventuelle listepunkter ikke vises */
 }
 #utdanning p {
     margin: 0.5rem 0 0 0;
@@ -155,7 +155,6 @@ section h2 {
     fill: var(--light-text-color);
     width: 24px;
     height: 24px;
-    transform: translateY(-2px);
 }
 
 footer {
@@ -169,6 +168,15 @@ footer {
 footer a {
     color: var(--light-text-color);
 }
+
+header.project-header {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+header.project-header h1 { color: var(--light-text-color); }
+header.project-header a { color: var(--light-text-color); }
 
 /* --- GALLERI OG MODAL (FOR PROSJEKTSIDER) --- */
 .gallery {
@@ -223,29 +231,23 @@ footer a {
 
 /* --- RESPONSIVT DESIGN --- */
 @media (max-width: 768px) {
-    /* Eksisterende regel for "Om Meg"-seksjonen */
     #about .about-content {
         flex-direction: column-reverse;
         text-align: center;
     }
-
-    /* Eksisterende regel for galleriet */
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* --- NYE OG FORBEDREDE REGLER FOR STICKY NAVIGASJON PÅ MOBIL --- */
     .sticky-nav {
         display: flex;
-        justify-content: space-around; /* Fordeler lenkene jevnt */
+        justify-content: space-around;
         padding: 0.5rem 0;
-        flex-wrap: nowrap; /* Tvinger alt til å være på én linje */
-        overflow-x: auto; /* Tillater horisontal scroll HVIS det er absolutt nødvendig */
+        flex-wrap: nowrap;
+        overflow-x: auto;
     }
-
     .sticky-nav a {
-        flex-shrink: 0; /* Hindrer at lenkene krymper for mye */
-        font-size: 0.9rem; /* Litt mindre skriftstørrelse på mobil */
-        padding: 0.5rem 0.8rem; /* Justert padding */
+        flex-shrink: 0;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

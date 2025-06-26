@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funksjon for å scrolle jevnt til toppen når knappen klikkes
     if (scrollToTopBtn) {
         scrollToTopBtn.onclick = function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Forhindrer at # legges til i URL-en
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                behavior: 'smooth' // Myk, animert scrolling
             });
         }
     }
