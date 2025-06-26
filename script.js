@@ -1,13 +1,37 @@
-// Vent til hele HTML-dokumentet er lastet før skriptet kjøres
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Hent de nødvendige HTML-elementene
+    // --- KODE FOR SCROLL-TO-TOP KNAPP ---
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    // Funksjon som kjører når brukeren scroller
+    window.onscroll = function() {
+        // Logikk for å vise/skjule "til toppen"-knappen
+        if (scrollToTopBtn) {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        }
+    };
+
+    // Funksjon for å scrolle jevnt til toppen når knappen klikkes
+    if (scrollToTopBtn) {
+        scrollToTopBtn.onclick = function(event) {
+            event.preventDefault(); // Forhindrer at # legges til i URL-en
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Myk, animert scrolling
+            });
+        }
+    }
+
+    // --- KODE FOR MODAL/GALLERI PÅ PROSJEKTSIDER ---
     const modal = document.getElementById("myModal");
-    const modalImg = document.getElementById("img01");
+    const modalImg = document.getElementById("modalImage");
     const galleryImages = document.querySelectorAll(".gallery img");
     const closeSpan = document.querySelector(".modal .close");
 
-    // Gå gjennom hvert bilde i galleriet og legg til en klikk-lytter
     galleryImages.forEach(img => {
         img.onclick = function() {
             if (modal && modalImg) {
@@ -17,31 +41,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Funksjon for å lukke modalen
     function closeModal() {
         if (modal) {
             modal.style.display = "none";
         }
     }
 
-    // Legg til en klikk-lytter på lukkeknappen (X) for å lukke modalen
     if (closeSpan) {
         closeSpan.onclick = closeModal;
     }
     
-    // --- START PÅ ERSTATTET KODE ---
-    // Legg til en klikk-lytter på hele vinduet for å feilsøke
-    window.onclick = function(event) {
-        // Skriver ut informasjon til konsollen for å se hva som blir klikket på
-        console.log("Klikket på element:", event.target);
-        
-        // Sjekker om elementet som ble klikket på er selve modal-bakgrunnen
-        if (event.target == modal) {
-            console.log("Korrekt! Klikket på modal-bakgrunnen. Lukker modalen.");
-            closeModal();
-        } else {
-            console.log("Feil. Klikket ikke på modal-bakgrunnen.");
+    if (modal) {
+        modal.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     }
-    // --- SLUTT PÅ ERSTATTET KODE ---
 });

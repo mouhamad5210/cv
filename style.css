@@ -1,428 +1,187 @@
-/* General styles */
+:root {
+    --primary-color: #004080;
+    --secondary-color: #0066cc;
+    --background-color: #f4f8fc;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --light-text-color: #ffffff;
+    --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-body);
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--text-color);
     line-height: 1.6;
-    background-color: #f4f8fc; /* Light background */
+    background-color: var(--background-color);
 }
 
-/* Center and limit content width */
 .container {
-    width: 90%;
-    max-width: 800px;
+    width: 87%;
+    max-width: 900px;
     margin: 2rem auto;
-    background: #ffffff;
+    background: var(--card-background);
     padding: 2rem;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border: 2px solid #004080;
+    box-shadow: 0 8px 16px rgb(0, 0, 0, 0.1);
     border-radius: 10px;
+    border: 1px solid #e0e0e0;
 }
 
-/* Header styles */
-header {
-    position: relative; /* Scrolls naturally with the page */
-    width: 100%;
-    background-color: #ffffff;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: underline;
 }
 
-header.sticky {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: slideDown 0.3s ease-in-out;
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
 }
-header .container {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+strong {
+    color: var(--primary-color);
 }
-header .container h1,
-header .container p,
-header .container nav {
+
+header.main-identity {
+    padding: 2rem 1rem 1rem 1rem;
     text-align: center;
 }
-header .container nav {
-    margin-top: 0.5rem;
-    display: flex;
-    gap: 15px;
-}
-
-header .container nav a {
-    text-decoration: none;
-    color: #004080;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-header .container nav a:hover {
-    color: #0073e6; /* Lighter blue on hover */
-}
-
-body {
-    padding-top: 120px; /* Match the height of the fixed header */
-}
-
-header h1 {
+header.main-identity h1 {
     font-size: 2.5rem;
-    color: #004080;
-    margin: 0.5rem 0;
+    margin-bottom: 0.25rem;
+}
+header.main-identity p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 0;
 }
 
-header p {
-    font-size: 1rem;
-    color: #004080;
-    margin-bottom: 1rem;
-}
-
-header nav {
-    display: flex;
-    gap: 20px;
-}
-
-header nav a {
-    text-decoration: none;
-    color: #004080;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-header nav a:hover {
-    background-color: #0073e6;
-    color: white;
-}
-
-/* About section */
-#about .about-content {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.photo-wrapper {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid #004080;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-right: 20px;
-    margin-bottom: 10px;
-    position: relative;
-    background-color: #fff;
-    transform: translateY(10px); /* Moves the photo down by 10px */
-}
-
-.photo-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Fill the circle */
-    object-position: top; /* Focus on the top of the image */
-}
-
-.photo-wrapper::after {
-    content: '';
-    position: absolute;
+.sticky-nav {
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 70%, #f4f8fc 100%);
-    pointer-events: none; /* Make it non-interactive */
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease;
+}
+.sticky-nav.scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.sticky-nav a {
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+}
+.sticky-nav a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
-/* Section titles */
 section h2 {
-    color: #004080;
     font-size: 1.8rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #0066cc;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--secondary-color);
     display: inline-block;
     padding-bottom: 0.5rem;
 }
 
-/* Utdanning Section Styles */
-#utdanning ul {
-    list-style-type: none;
-    padding: 0;
+#about .about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
-
-#utdanning ul li {
-    background: #e6f2ff;
-    margin: 1rem 0;
-    padding: 0.8rem;
-    border-left: 4px solid #004080;
-    font-size: 1rem;
-    border-radius: 5px;
-    font-weight: bold;
+#about .photo-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    flex-shrink: 0;
 }
-
-/* Apply dark blue color to bolded text inside Utdanning section */
-#utdanning ul li b {
-    color: #004080; /* Dark blue */
-}
-
-#utdanning ul p {
-    margin: 0.5rem 0 1rem 1.5rem;
-    font-size: 0.95rem;
-    color: #333;
-    text-align: justify;
-}
-
-/* Skills list */
-#skills ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-#skills ul li {
-    background: #e6f2ff;
-    margin: 0.8rem 0;
-    padding: 0.8rem;
-    border-left: 4px solid #004080;
-    font-size: 1rem;
-    border-radius: 5px;
-}
-
-/* Projects section */
-.project {
-    margin-bottom: 1.5rem;
-    border: 2px solid #004080;
-    padding: 1rem;
-    border-radius: 8px;
-    background: #f9fbff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.project h3 {
-    color: #004080;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-}
-
-.project p {
-    font-size: 1rem;
-    margin: 0;
-}
-.project a {
-    color: #0066cc;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.project a:hover {
-    text-decoration: underline;
-    color: #004080;
-}
-.project h3 a {
-    color: #004080;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.project h3 a:hover {
-    color: #0066cc;
-    text-decoration: underline;
-}
-
-
-
-/* Contact section */
-#contact p {
-    font-size: 1rem;
-}
-
-#contact p a {
-    color: #004080;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#contact p a:hover {
-    text-decoration: underline;
-    color: #0066cc;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #004080;
-    color: #ffffff;
-    font-size: 0.9rem;
-    border-top: 5px solid #0066cc;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #about .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .photo-wrapper {
-        margin: 0 0 10px 0;
-    }
-
-    header h1 {
-        font-size: 2.5rem;
-    }
-
-    header nav a {
-        font-size: 1rem;
-    }
-
-
-    .gallery {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important; /* Three columns */
-        gap: 15px !important; /* Space between items */
-    }
-    
-    .gallery img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border: 2px solid #004080;
-        border-radius: 5px;
-    }z
-    
-    .gallery img:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-    }
-}
-
-/* --- Gallery and Modal Styles --- */
-
-/* Style for the gallery container */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-/* Style for each image in the gallery */
-.gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    cursor: pointer; /* Viser at bildet er klikkbart */
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Skjult som standard */
-    position: fixed; 
-    z-index: 1000; /* Legger seg øverst */
-    padding-top: 60px; 
-    left: 0;
-    top: 0;
+#about .photo-wrapper img {
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9); /* Svart, delvis gjennomsiktig bakgrunn */
+    object-fit: cover;
 }
 
-/* Modal Content (the image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    animation-name: zoom;
-    animation-duration: 0.4s;
+#projects .project, #utdanning ul li {
+    background: #f9fbff;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 5px solid var(--secondary-color);
+    border-radius: 5px;
+    list-style-type: none;
+}
+#utdanning p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.95rem;
 }
 
-/* Animation for the zoom effect */
-@keyframes zoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-}
-
-/* The Close Button (X) */
-.close {
-    display: none;
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 1000;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
+    box-shadow: 0 6px 12px rgb(0, 0, 0);
+    display: flex; /* Endret fra none for å la JS styre synlighet med opacity */
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Skjult som standard */
+    pointer-events: none; /* Kan ikke klikkes når skjult */
+    transition: opacity 0.4s, bottom 2s;
+}
+#scrollToTopBtn.visible {
+    opacity: 1; /* Synlig */
+    pointer-events: auto; /* Kan klikkes når synlig */
+    bottom: 30px;
+}
+#scrollToTopBtn svg {
+    fill: var(--light-text-color);
+    width: 24px;
+    height: 24px;
+    transform: translateY(-2px);
 }
 
-/* --- Ytterligere Responsive Justeringer --- */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--light-text-color);
+}
 
-/* For nettbrett og mindre skjermer (du har kanskje denne fra før) */
 @media (max-width: 768px) {
-    /* Gjør at tekst i "om meg"-seksjonen legger seg under bildet */
     #about .about-content {
-        flex-direction: column;
+        flex-direction: column-reverse;
         text-align: center;
     }
-
-    .photo-wrapper {
-        margin: 0 auto 20px; /* Senterstiller bildet når det er alene */
+    .sticky-nav {
+        padding: 0.5rem 0;
+    }
+    .sticky-nav a {
+        margin: 0 0.2rem;
+        padding: 0.5rem;
     }
 }
-
-/* For små mobilskjermer */
-@media (max-width: 480px) {
-    .container {
-        /* Mindre padding på små skjermer for å gi mer plass til innhold */
-        padding: 1rem;
-    }
-
-    header h1 {
-        /* Mindre skriftstørrelse på overskriften */
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    header nav {
-        /* Stabler navigasjonslenkene vertikalt */
-        flex-direction: column;
-        gap: 10px; /* Mindre mellomrom mellom lenkene */
-    }
-
-    section h2 {
-        /* Mindre skriftstørrelse på seksjonstitler */
-        font-size: 1.5rem;
-    }
-}
-     

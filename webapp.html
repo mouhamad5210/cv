@@ -1,141 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Application with ASP.Net Core</title>
+    <title>Prosjekt: Webapplikasjon med ASP.Net Core</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Center and limit content width */
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 2rem auto; /* Center horizontally */
-            background: #ffffff;
-            padding: 2rem;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border: 2px solid #004080;
-            border-radius: 10px;
-            -webkit-text-fill-color: #004080;
-        }
-
-        /* Gallery styles */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border: 4px solid #004080;
-            border-radius: 5px;
-            cursor: pointer;
-            aspect-ratio: 1/1;
-        }
-
-        .hero {
-            display: flex; /* Use flexbox for centering */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: 20vh; /* Adjust height as needed */
-            background-color: #ecf0f3; /* Optional: Add a background color */
-            color: white; /* Optional: Change the text color */
-            text-align: center;
-            margin: 2; /* Remove default margin */
-            padding: 1rem; /* Add padding if needed */
-            font-size: 1.8rem; /* Adjust the font size */
-            border-radius: 10px; /* Optional: Add rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
-        }
-
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            top: 40px;
-            right : 20px;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90vh;
-            width: auto;      /* La bredden justere seg automatisk */
-            height: auto;     /* La høyden justere seg automatisk */
-            display: block;   /* Sikrer riktig oppførsel */
-            margin: auto;
-            border: 2px solid white;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        .close {
-        position: absolute;
-        top: 50px; /* Original top (10px) + 40px */
-        right: 50px; /* Original right (10px) + 20px */
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: white;
-        background-color: rgba(255, 255, 255, 0.783);
-        border: none;
-        border-radius: 5px;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease;
-        }
-
-        .close:hover {
-            background-color: rgba(255, 255, 255, 0.509);
-        }
-
-    .modal-content {
-        position: relative; /* Ensures the close button is aligned relative to the image */
-    }
-
-        h2, h3, p, ul, li {
-            color: #004080;
-        }
-    </style>
 </head>
 <body>
-    <header class="hero">
-        <h1>Web Application with ASP.Net Core</h1>
+    <header class="project-header">
+        <h1>Webapplikasjon med ASP.Net Core</h1>
+        <a href="index.html#projects">Tilbake til CV</a>
     </header>
+
     <main class="container">
         <section>
             <h2>About the Project</h2>
             <p>This project is a robust <strong>Food Management Web Application</strong> built using <strong>ASP.Net Core</strong>. It streamlines food-related data management, featuring <strong>real-time error handling</strong>, <strong>secure authentication</strong>, and <strong>advanced filtering capabilities</strong>. The application is designed to prioritize <strong>scalability</strong>, <strong>reliability</strong>, and <strong>user experience</strong>.</p>
         </section>
-
+        
         <section>
-            <h2>Gallery from the project</h2>
+            <h2>Gallery</h2>
             <div class="gallery">
-                <img src="images/webapp1.png" alt="Web Application Screenshot 1" onclick="openModal(this.src)">
-                <img src="images/webapp2.png" alt="Web Application Screenshot 2" onclick="openModal(this.src)">
-                <img src="images/webapp3.png" alt="Web Application Screenshot 3" onclick="openModal(this.src)">
-                <img src="images/webapp4.png" alt="Web Application Screenshot 4" onclick="openModal(this.src)">
-                <img src="images/webapp5.png" alt="Web Application Screenshot 5" onclick="openModal(this.src)">
-                <img src="images/webapp6.png" alt="Web Application Screenshot 6" onclick="openModal(this.src)">
-                <img src="images/webapp7.png" alt="Web Application Screenshot 7" onclick="openModal(this.src)">
-                <img src="images/webapp8.png" alt="Web Application Screenshot 8" onclick="openModal(this.src)">
-            </div>
-            <!-- Modal -->
-            <div id="imageModal" class="modal">
-                <img class="modal-content" id="modalImage" alt="Large view of the image">
+                <img src="images/webapp1.png" alt="Web Application Screenshot 1">
+                <img src="images/webapp2.png" alt="Web Application Screenshot 2">
+                <img src="images/webapp3.png" alt="Web Application Screenshot 3">
+                <img src="images/webapp4.png" alt="Web Application Screenshot 4">
+                <img src="images/webapp5.png" alt="Web Application Screenshot 5">
+                <img src="images/webapp6.png" alt="Web Application Screenshot 6">
+                <img src="images/webapp7.png" alt="Web Application Screenshot 7">
+                <img src="images/webapp8.png" alt="Web Application Screenshot 8">
             </div>
         </section>
 
@@ -196,42 +89,17 @@
                 With its combination of advanced technologies, robust testing frameworks, and user-centric design, Food_WebApp is a modern and comprehensive solution tailored to address the complexities of food management.
             </p>
         </section>
-        
-        
     </main>
-    <footer class="container">
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer>
         <p>&copy; 2024 Mohamad Redwan</p>
-    </footer>   
-    
-    
-    <script>
-        // Hent elementene én gang for bedre ytelse
-        const modal = document.getElementById('imageModal');
-        const modalImage = document.getElementById('modalImage');
+    </footer>
 
-        // Funksjon for å åpne modalen
-        function openModal(imageSrc) {
-            if (modal && modalImage) {
-                modal.style.display = 'flex'; // Viser modalen
-                modalImage.src = imageSrc;    // Setter riktig bilde
-            }
-        }
-    
-        // Funksjon for å lukke modalen
-        function closeModal() {
-            if (modal) {
-                modal.style.display = 'none'; // Skjuler modalen
-            }
-        }
-
-        // NY KODE: Lukk modalen hvis brukeren klikker utenfor bildet
-        window.onclick = function(event) {
-            // Sjekker om elementet som ble klikket er selve modal-bakgrunnen
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>

@@ -5,269 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamad Redwan | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        html {
-            scroll-behavior: smooth; /* Enables smooth scrolling */
-        }
-        /* General styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.6;
-            background-color: #f4f8fc; /* Light background */
-        }
-
-        /* Center and limit content width */
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #ffffff;
-            padding: 2rem;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border: 2px solid #00264d; /* Dark blue border */
-            border-radius: 10px;
-        }
-
-        /* Header styles */
-        header {
-            position: relative;
-            background-color: #004080; /* Dark blue background */
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            padding: 1.5rem 0;
-            text-align: center;
-            border: 2px solid #00264d; /* Dark blue border */
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #004080; /* White text */
-            margin: 0.5rem 0;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #004080; /* Light blue */
-            margin-bottom: 1rem;
-        }
-
-        header nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        header nav a {
-            text-decoration: none;
-            color: #004080; /* Light blue links */
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        header nav a:hover {
-            background-color: #0052cc;
-            color: white;
-        }
-
-        /* About section */
-        #about .about-content {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .photo-wrapper {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid #004080;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-right: 20px;
-            margin-bottom: 10px;
-        }
-
-        .photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the photo fills the frame */
-            object-position: center top; /* Adjusts the position of the image within the frame */
-            transform: translate(-5px, 7px); /* Moves the image down by 10px */
-        }
-        .about-content p {
-            flex: 1;
-            text-align: justify;
-        }
-
-        /* Section titles */
-        section h2 {
-            color: #004080;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #0073e6;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        /* Skills list */
-        #skills ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #skills ul li {
-            background: #e6f2ff;
-            margin: 0.8rem 0;
-            padding: 0.8rem;
-            border-left: 4px solid #004080;
-            font-size: 1rem;
-            border-radius: 5px;
-        }
-
-        /* Projects section */
-        .project {
-            margin-bottom: 1.5rem;
-            border: 2px solid #0052cc;
-            padding: 1rem;
-            border-radius: 8px;
-            background: #f9fbff;
-            color: #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .project h3 {
-            color: #004080;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project a {
-            color: #004080;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .project a:hover {
-            text-decoration: underline;
-            color: #004080;
-        }
-
-        /* Utdanning section */
-        #utdanning ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #utdanning ul li {
-            background: #e6f2ff;
-            margin: 1rem 0;
-            padding: 0.8rem;
-            border-left: 4px solid #004080;
-            font-size: 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        #utdanning ul p {
-            margin: 0.5rem 0 1rem 1.5rem;
-            font-size: 0.95rem;
-            color: #333;
-            text-align: justify;
-        }
-
-        /* Contact section */
-        #contact p a {
-            color: #004080;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #contact p a:hover {
-            text-decoration: underline;
-            color: #0073e6;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background: #00264d; /* Dark blue background */
-            color: #cce0ff; /* Light blue text */
-            font-size: 0.9rem;
-            border-top: 5px solid #004080; /* Dark blue border */
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #about .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .photo-wrapper {
-                margin: 0 0 20px 0;
-            }
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Mohamad Redwan</h1>
-            <p>IT Engineer Student | Programmer | Web Developer</p>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
+    <header class="main-identity">
+        <h1>Mohamad Redwan</h1>
+        <p>IT Engineer Student | Programmer | Web Developer</p>
     </header>
-    <section id="about">
-        <div class="container">
+
+    <nav class="sticky-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#utdanning">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="about" class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <div class="photo-wrapper">
-                    <img src="mohamad_redwan.jpg" alt="Mohamad Redwan">
-                </div>
                 <p>
                     I am an engaged IT engineer student with expertise in programming, system architecture, and web development.
                     Currently pursuing a bachelor's degree in Applied Computer Technology at OsloMet, I am passionate about creating
                     innovative technological solutions. With several years of experience in IT support and development, I strive to
                     solve complex challenges and enhance user experiences.
                 </p>
+                <div class="photo-wrapper">
+                    <img src="mohamad_redwan.jpg" alt="Mohamad Redwan">
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="skills">
-        <div class="container">
+        </section>
+
+        <section id="skills" class="container">
             <h2>Technical Skills</h2>
             <ul>
-                <li><b>Programming:</b> Java, Python, C++, Scheme, Kotlin, ASP.NET Core, C#</li>
-                <li><b>Web Technologies:</b> CSHTML, HTML, React</li>
-                <li><b>Databases:</b> MySQL, SQLite, LINQ</li>
-                <li><b>APIs:</b> REST, JSON</li>
-                <li><b>Tools:</b> Agile methods, Serilog, Android Studio</li>
-                <li><b>Security:</b> Network Security, AR Data Modeling</li>
+                <li><strong>Programming:</strong> Java, Python, C++, Scheme, Kotlin, ASP.NET Core, C#</li>
+                <li><strong>Web Technologies:</strong> CSHTML, HTML, React</li>
+                <li><strong>Databases:</strong> MySQL, SQLite, LINQ</li>
+                <li><strong>APIs:</strong> REST, JSON</li>
+                <li><strong>Tools:</strong> Agile methods, Serilog, Android Studio</li>
+                <li><strong>Security:</strong> Network Security, AR Data Modeling</li>
             </ul>
-        </div>
-    </section>
-    <section id="projects">
-        <div class="container">
+        </section>
+
+        <section id="projects" class="container">
             <h2>Projects</h2>
-    
-            <!-- Web Application with ASP.Net Core -->
             <div class="project">
-                <h3>
-                    <a href="webapp.html">Web Application with ASP.Net Core</a>
-                </h3>
+                <h3><a href="webapp.html">Web Application with ASP.Net Core</a></h3>
                 <ul>
                     <li>Developed a web application using ASP.NET Core focused on real-time error handling, authentication, and API integrations.</li>
                     <li>Utilized scaffolding to streamline the development process for authentication.</li>
@@ -276,24 +60,16 @@
                     <li>Performed testing using the AAA model (Arrange, Act, Assert) to verify application functionality.</li>
                 </ul>
             </div>
-    
-            <!-- My_Shop Web Application -->
             <div class="project">
-                <h3>
-                    <a href="myshop.html">My_Shop Web Application</a>
-                </h3>
+                <h3><a href="myshop.html">My_Shop Web Application</a></h3>
                 <ul>
                     <li>Developed a complete web application using ASP.NET Core, C#, CSHTML, HTML, React, and SQLite.</li>
                     <li>Integrated Serilog for logging and error tracking, ensuring robust system performance.</li>
                     <li>Applied the AAA model to conduct comprehensive testing and verify functionalities.</li>
                 </ul>
             </div>
-    
-            <!-- Surfing App -->
             <div class="project">
-                <h3>
-                    <a href="surfingapp.html">Surfing App with Android Studio</a>
-                </h3>
+                <h3><a href="surfingapp.html">Surfing App with Android Studio</a></h3>
                 <ul>
                     <li>Collaborated in a team of six to develop a mobile application in Android Studio using Kotlin.</li>
                     <li>Integrated API support for real-time data and designed a user-friendly interface for seamless navigation.</li>
@@ -302,46 +78,52 @@
                     <li>Performed testing and debugging to ensure stability and high-quality user experience, resulting in positive feedback.</li>
                 </ul>
             </div>
-    
-            <!-- Development of ASP Programming Language -->
             <div class="project">
-                <h3>
-                    <a href="asp-language.html">Development of "ASP" Programming Language</a>
-                </h3>
+                <h3><a href="asp-language.html">Development of "ASP" Programming Language</a></h3>
                 <ul>
                     <li>Co-led the development of a new programming language, "ASP," built using Java.</li>
                     <li>Implemented core features such as while-loops, for-loops, if-statements, and other fundamental constructs.</li>
                     <li>Conducted extensive testing to verify functionality and ensure reliable programming elements.</li>
                 </ul>
             </div>
-        </div>
-    </section>
-    
-    <section id="utdanning">
-        <div class="container">
+        </section>
+
+        <section id="utdanning" class="container">
             <h2>Utdanning (Education)</h2>
             <ul>
-                <li><b>2024 – Present:</b> Applied Computer Technology / OsloMet, Oslo</li>
-                <p>A three-year bachelor's program focused on designing and developing technological solutions emphasizing user-friendliness and universal design.</p>
-                <li><b>2020 – Present:</b> Informatics: Programming and System Architecture / UiO, Oslo</li>
-                <p>Specialized in modeling and maintaining complex IT systems. Covered programming, operating systems, and IT theory, focusing on secure and efficient software development.</p>
-                <li><b>2024:</b> Azure Fundamentals Certification</li>
-                <p>Completed an online course on fundamental concepts and services of the Azure platform.</p>
-                <li><b>2009 – 2012:</b> BioMedical Engineering / Damascus University, Syria</li>
-                <p>Completed 3 of 5 years, with studies on optical and infrared radiation detection, remote sensing, and signal processing.</p>
+                <li><strong>2024 – Present:</strong> Applied Computer Technology / OsloMet, Oslo
+                    <p>A three-year bachelor's program focused on designing and developing technological solutions emphasizing user-friendliness and universal design.</p>
+                </li>
+                <li><strong>2020 – Present:</strong> Informatics: Programming and System Architecture / UiO, Oslo
+                    <p>Specialized in modeling and maintaining complex IT systems. Covered programming, operating systems, and IT theory, focusing on secure and efficient software development.</p>
+                </li>
+                <li><strong>2024:</strong> Azure Fundamentals Certification
+                    <p>Completed an online course on fundamental concepts and services of the Azure platform.</p>
+                </li>
+                <li><strong>2009 – 2012:</strong> BioMedical Engineering / Damascus University, Syria
+                    <p>Completed 3 of 5 years, with studies on optical and infrared radiation detection, remote sensing, and signal processing.</p>
+                </li>
             </ul>
-        </div>
-    </section>
-    <section id="contact">
-        <div class="container">
+        </section>
+
+        <section id="contact" class="container">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:mhd010591@gmail.com">mhd010591@gmail.com</a></p>
             <p>GitHub: <a href="https://github.com/mouhamad5210" target="_blank">mouhamad5210</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/mohamad-redwan/" target="_blank">Mohamad Redwan</a></p>
-        </div>
-    </section>
+        </section>
+    </main>
+
+    <a href="#" id="scrollToTopBtn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M11.9997 10.8284L7.75706 15.071L6.34285 13.6568L11.9997 8L17.6566 13.6568L16.2424 15.071L11.9997 10.8284Z"></path>
+        </svg>
+    </a>
+    
     <footer>
         <p>&copy; 2024 Mohamad Redwan</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
