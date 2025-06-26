@@ -1,10 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- KODE FOR SCROLL-TO-TOP KNAPP ---
+    // --- KODE FOR STICKY NAVIGATION OG SCROLL-TO-TOP ---
+    const nav = document.querySelector('.sticky-nav');
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
     // Funksjon som kjører når brukeren scroller
     window.onscroll = function() {
+        // Logikk for sticky navigation
+        if (nav) {
+            if (window.pageYOffset > nav.offsetTop) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+        
         // Logikk for å vise/skjule "til toppen"-knappen
         if (scrollToTopBtn) {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -18,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funksjon for å scrolle jevnt til toppen når knappen klikkes
     if (scrollToTopBtn) {
         scrollToTopBtn.onclick = function(event) {
-            event.preventDefault(); // Forhindrer at # legges til i URL-en
+            event.preventDefault();
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // Myk, animert scrolling
+                behavior: 'smooth'
             });
         }
     }

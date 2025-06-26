@@ -23,14 +23,13 @@ body {
 }
 
 .container {
-    width: 87%;
+    width: 90%;
     max-width: 900px;
     margin: 2rem auto;
     background: var(--card-background);
     padding: 2rem;
-    box-shadow: 0 8px 16px rgb(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
-    border: 1px solid #e0e0e0;
 }
 
 a {
@@ -116,15 +115,6 @@ section h2 {
     object-fit: cover;
 }
 
-/* Beholder stilen for prosjekt-kortene */
-#projects .project {
-    background: #f9fbff;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    border-left: 5px solid var(--secondary-color);
-    border-radius: 5px;
-}
-
 #projects .project, #utdanning ul li {
     background: #f9fbff;
     padding: 1.5rem;
@@ -133,13 +123,13 @@ section h2 {
     border-radius: 5px;
     list-style-type: none;
 }
-
 #utdanning p {
     margin: 0.5rem 0 0 0;
     font-size: 0.95rem;
 }
 
 #scrollToTopBtn {
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -150,17 +140,15 @@ section h2 {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    box-shadow: 0 6px 12px rgb(0, 0, 0);
-    display: flex; /* Endret fra none for å la JS styre synlighet med opacity */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     align-items: center;
     justify-content: center;
-    opacity: 0; /* Skjult som standard */
-    pointer-events: none; /* Kan ikke klikkes når skjult */
-    transition: opacity 0.4s, bottom 2s;
+    opacity: 0;
+    transition: opacity 0.4s, bottom 0.4s;
 }
 #scrollToTopBtn.visible {
-    opacity: 1; /* Synlig */
-    pointer-events: auto; /* Kan klikkes når synlig */
+    display: flex;
+    opacity: 1;
     bottom: 30px;
 }
 #scrollToTopBtn svg {
@@ -182,16 +170,82 @@ footer a {
     color: var(--light-text-color);
 }
 
+/* --- GALLERI OG MODAL (FOR PROSJEKTSIDER) --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- RESPONSIVT DESIGN --- */
 @media (max-width: 768px) {
+    /* Eksisterende regel for "Om Meg"-seksjonen */
     #about .about-content {
         flex-direction: column-reverse;
         text-align: center;
     }
-    .sticky-nav {
-        padding: 0.5rem 0;
+
+    /* Eksisterende regel for galleriet */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
+
+    /* --- NYE OG FORBEDREDE REGLER FOR STICKY NAVIGASJON PÅ MOBIL --- */
+    .sticky-nav {
+        display: flex;
+        justify-content: space-around; /* Fordeler lenkene jevnt */
+        padding: 0.5rem 0;
+        flex-wrap: nowrap; /* Tvinger alt til å være på én linje */
+        overflow-x: auto; /* Tillater horisontal scroll HVIS det er absolutt nødvendig */
+    }
+
     .sticky-nav a {
-        margin: 0 0.2rem;
-        padding: 0.5rem;
+        flex-shrink: 0; /* Hindrer at lenkene krymper for mye */
+        font-size: 0.9rem; /* Litt mindre skriftstørrelse på mobil */
+        padding: 0.5rem 0.8rem; /* Justert padding */
     }
 }
